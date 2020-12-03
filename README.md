@@ -1,2 +1,2 @@
 # Clustering adaptative method
-Adaptative method for do clustering whitout defining the numbers of centers previously.
+Adaptative method to do clustering whitout defining the numbers of centers previously.
