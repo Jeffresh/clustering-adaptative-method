@@ -48,3 +48,26 @@ for i=1:length(centers)
     plot(X(1,ind), X(2,ind), strcat('o', colors(i) ))
 end
 hold off;
+
+% Recalculate protoypes as Centroids
+
+ind = find(class == centers(i));
+
+for i=1:length(centers)
+ind = find(class == centers(i));
+centroids(:, i) = meanpat(X(:, ind));
+end
+
+for i=1:length(centroids)
+    d(i,:) = d_euclid(X,centroids(:,i));
+end
+
+[~,yest]=min(d);
+
+figure,
+hold on;
+for i=1:length(centers)
+    ind = find(yest == i);
+    plot(X(1,ind), X(2,ind), strcat('o', colors(i) ))
+end
+hold off;
